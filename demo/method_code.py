@@ -60,6 +60,17 @@ sac.chip(
     ], {params_str}
 )
 """,
+#     color_picker="""
+# sac.color_picker({params_str})
+# """,
+    color_picker="""
+sac.color_picker(items=[
+        sac.CasItem('home', icon='house'),
+        sac.CasItem('app', icon='app', children=[
+            sac.CasItem('store', icon='bag-check'),
+            sac.CasItem('brand', icon='award')])
+    ], {params_str})
+""",
     divider="""
 sac.divider({params_str})
 """,

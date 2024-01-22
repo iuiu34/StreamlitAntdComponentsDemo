@@ -16,6 +16,13 @@ from demo.callback import callback_usage
 from demo.display_method import display_method
 from demo.overview import overview
 from demo.session_state import session_usage
+import re
+
+def snake_to_camel(snake_str):
+    components = snake_str.split('_')
+    return ''.join(v.title() for v in components)
+
+# Test the function
 
 st.set_page_config(layout='wide', page_title='streamlit-antd-components')
 
@@ -64,8 +71,9 @@ with st.sidebar.container():
                 children=[
                     sac.MenuItem('cascader'),
                     sac.MenuItem('checkbox'),
+                    sac.MenuItem('color_picker', tag=new),
                     sac.MenuItem('chip'),
-                    'rate',
+                    sac.MenuItem('rate'),
                     sac.MenuItem('switch'),
                     sac.MenuItem('transfer')
                 ]
@@ -92,7 +100,7 @@ with st.sidebar.container():
         ],
         key='menu',
         open_all=True, indent=20,
-        format_func='title',
+        format_func=snake_to_camel,
     )
     sac.divider('Environment', color='gray')
     sac.tags(
