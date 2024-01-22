@@ -74,6 +74,7 @@ sac.color_picker(items=[
     divider="""
 sac.divider({params_str})
 """,
+
     menu="""
 sac.menu([
     sac.MenuItem('home', icon='house-fill', tag=[sac.Tag('Tag1', color='green'), sac.Tag('Tag2', 'red')]),
