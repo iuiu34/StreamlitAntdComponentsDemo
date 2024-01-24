@@ -60,6 +60,9 @@ sac.chip(
     ], {params_str}
 )
 """,
+    color_picker="""
+sac.color_picker({params_str})
+""",
     divider="""
 sac.divider({params_str})
 """,
@@ -123,12 +126,14 @@ sac.switch({params_str})
     #     sac.TabsItem(label='disabled', disabled=True),
     # ], {params_str})
     # """,
+    qr_code="""
+    sac.qr_code({params_str})""",
     tabs="""
 sac.tabs(
     ['apple', 'google','github','disabled'],
     {params_str})
 """,
-    tags="""
+    tag="""
 sac.tags([
     sac.Tag(label='tag'),
     sac.Tag(label='no border', bordered=False),

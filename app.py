@@ -36,6 +36,11 @@ st.markdown(f'''
     </style>
     ''', unsafe_allow_html=True)
 
+
+def snake_to_mixed(s):
+    return ''.join([w.capitalize() for w in s.split('_')])
+
+
 with st.sidebar.container():
     # tag
     modified = sac.Tag('Modified', color='blue', bordered=False)
@@ -64,6 +69,7 @@ with st.sidebar.container():
                 children=[
                     sac.MenuItem('cascader'),
                     sac.MenuItem('checkbox'),
+                    sac.MenuItem('color_picker', tag=new),
                     sac.MenuItem('chip'),
                     'rate',
                     sac.MenuItem('switch'),
@@ -73,15 +79,18 @@ with st.sidebar.container():
             sac.MenuItem(
                 label='data display', type='group',
                 children=[
+                    sac.MenuItem('qr_code', tag=new),
                     sac.MenuItem('segmented'),
                     sac.MenuItem('tabs', tag=modified),
+                    sac.MenuItem('tabs', tag=modified),
                     sac.MenuItem('tree'),
-                    sac.MenuItem('tags'),
+                    sac.MenuItem('tag'),
                 ],
             ),
             sac.MenuItem(
                 label='feedback', type='group', children=[
                     sac.MenuItem('alert', tag=modified),
+                    sac.MenuItem('modal', tag=new),
                     sac.MenuItem('result')
                 ]
             ),
@@ -92,7 +101,7 @@ with st.sidebar.container():
         ],
         key='menu',
         open_all=True, indent=20,
-        format_func='title',
+        format_func=snake_to_mixed,
     )
     sac.divider('Environment', color='gray')
     sac.tags(
